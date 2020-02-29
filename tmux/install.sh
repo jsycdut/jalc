@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 cwd=`pwd`
-cd
+
+[[ -e $HOME/.tmux.conf || -L $HOME/.tmux.conf ]] && rm $HOME/.tmux.conf
+
+cd $HOME
 ln -s $cwd/tmux.conf .tmux.conf
+
+cd $cwd
