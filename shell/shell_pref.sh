@@ -18,7 +18,7 @@ alias 6..='cd ../../../../../..'
 alias e='nvim'
 alias f='fzf'
 alias r='ranger'
-alias t='tmux new -s workspace -n base'
+alias t='tmux new -n github -s workspace -c "$HOME/github" "nvim"\; split-window -c "$HOME/github" -v -p 20 \; split-window -c "#{pane_current_path}" -h'
 alias vim='nvim'
 
 # auto fullscreen for gnome-terminal
