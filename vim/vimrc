@@ -111,6 +111,7 @@ set autowrite        "自动保存，指当前文件失去焦点时会触发自�
 
 "colorscheme tomorrow "设置颜色主题为tomorrow,前提是你安装了tomorrow主题
 
+
 "set ruler            "显示当前光标所在的行与列的信息
                       "具体位置在vim窗口右下角，类似4,4，20%
                       "意思分别为，当前光标在第几行，第几列，光标在全文的百分之几十。
@@ -119,7 +120,7 @@ set autowrite        "自动保存，指当前文件失去焦点时会触发自�
 
 
 "set mouse=a          "使用鼠标点击来定位，即鼠标点哪里，光标就去哪里。
-"
+
 set fileencodings=ucs-bom,utf-8,gb2312      "vim打开文件的时候，需要识别文件的编码，用的就是这里指定的编码
                                             "vim会根据这里所列出的编码来尝试对文件进行打开
           
@@ -140,7 +141,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'ryanoasis/vim-devicons'    "文档图标
 
-Plug 'scrooloose/nerdtree' " 目录插件
+Plug 'preservim/nerdtree' " 目录插件
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTree文件类型语法高亮
 
@@ -158,9 +159,13 @@ Plug 'tpope/vim-fugitive' " git plugin for vim, by tpope
 
 Plug 'tpope/vim-surround' " surround content with quotes or something, another plugin by tpope
 
-"Plug 'junegunn/fzf' " fuzzy finder, you don't need to find file in nerd tree, or path+=** to enlarge the file search range, sometimes this plugin will be dangerous
+" combined
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
-Plug 'uguu-org/vim-matrix-screensaver' " matrix screen saver, actually useless cause you don't need it
+Plug 'junegunn/seoul256.vim'
+
+Plug 'morhetz/gruvbox'
 
 Plug 'majutsushi/tagbar' " using ctag files to show the encapsulation of the code file, like out line in eclipse or strcture in Intellij
 
@@ -220,10 +225,11 @@ let g:NERDTreeDirArrowCollapsible = ''
 let g:closetag_filenames = '*.xml, *.html'
 let g:closetag_shortcut = '>'
 
-
-"""""""""""""""""""FZF"""""""""""""""""""
-map <leader>f :FZF ~/github/flink<CR>
-
+"fuzzy-finder
+map <leader>f :FZF ~<CR>
 
 " Auto Command
 au BufWrite * :retab "change tab to space
+
+"must be put after colorscheme plugin declaration
+color gruvbox
