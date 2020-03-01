@@ -27,3 +27,5 @@ alias gnome-terminal='gnome-terminal --full-screen'
 # variables
 export http_proxy="http://127.0.0.1:8118"
 export https_proxy="http://127.0.0.1:8118"
+export EDITOR="vim"
+export TERM="xterm-256color"
