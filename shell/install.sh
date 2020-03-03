@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 CWD=`pwd`
 
-[[ -e $HOME/.shell_pref || -L $HOME/.shell_pref ]] && rm $HOME/.shell_pref
+[[ -d $HOME/.$USER-bin || -L $HOME/.$USER-bin ]] && rm -rf $HOME/.$USER-bin
+cd $HOME && ln -s $CWD/bin .$USER-bin
 
-cd $HOME && ln -s $CWD/shell_pref.sh .shell_pref.sh
+echo 'source $HOME/'.$USER'-bin/shell_pref.sh' >> $HOME/.zshrc
+echo 'source $HOME/'.$USER'-bin/shell_pref.sh' >> $HOME/.bashrc
 
-echo 'source $HOME/.shell_pref.sh' >> $HOME/.zshrc
 cd $CWD

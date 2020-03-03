@@ -130,6 +130,7 @@ set encoding=utf-8                          "vim内部使用的编码，显示�
 
 set termencoding=utf-8                      "告诉vim你目前使用的terminal是什么编码
 
+set tags+=~/dev-env/open-jdk-1.8/tags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -225,8 +226,12 @@ let g:NERDTreeDirArrowCollapsible = ''
 let g:closetag_filenames = '*.xml, *.html'
 let g:closetag_shortcut = '>'
 
-"fuzzy-finder
-map <leader>f :FZF ~<CR>
+"""""""fuzz-finder"""""""
+"search in vim enter directory
+let g:base=getcwd()
+command! -bang FB call fzf#vim#files(base)
+"search in current directory
+map <leader>f :FZF <CR>
 
 " Auto Command
 au BufWrite * :retab "change tab to space
