@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Vim原始配置
 
@@ -23,7 +23,7 @@ set backspace=2       "等同于set backspace=indent,eol,start
                       "eol，指end of line，可以通过这样来合并两行
                       "start，指删除此次插入之前的输入
 
-set list              "显示tab等特殊字符
+"set list              "显示tab等特殊字符
 set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:¬ "定义特殊字符的显示形式
 
 set expandtab         "Tab键转换为空格
@@ -69,6 +69,8 @@ set nu                "显示行号
 
 set relativenumber    "显式相对行号，便于计算上下跳的行数
 
+set autoread         "自动读取改动
+
 set autowrite        "自动保存，指当前文件失去焦点时会触发自动保存
                       "一般而言，你是不会忘记在关闭文件之前使用:w的
                       "而且vim也会提示你
@@ -76,14 +78,14 @@ set autowrite        "自动保存，指当前文件失去焦点时会触发自�
 "set showmatch        "打一半边括号时，自动补全另一半括号
                       "如果你安装了auto-pair之类的插件，大可注释掉此行
 
-set cursorline        "高亮光标所在行
+"set cursorline        "高亮光标所在行
                       "即视感就是你光标所在行出现一条横线
                       "cursorline和cursorcolumn
                       "遇到文中有中文英文的时候往往对不齐
                       "可以考虑对其进行关闭
                       "这两者都和配色有关
 
-set cursorcolumn      "高亮光标所在列
+"set cursorcolumn      "高亮光标所在列
                       "即视感就是你光标所在的那一列会出现一根竖线来提示你
                       "但是，如果你的光标在第一列
                       "有可能导致你看不清第一列的字符，这个和你配色有关
@@ -113,7 +115,6 @@ set termencoding=utf-8                      "告诉vim你目前使用的terminal
 
 highlight VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE "这里清除NERDTree和文本区两边的围绕白块
 
-
 """""""""""""""""""" panel traverse start
 " use traditional h j k l
 map <C-h> <C-w>h
@@ -121,9 +122,29 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" use arrow keys to do so
-map <C-Up> <C-w>k
-map <C-Down> <C-w>j
-map <C-Left> <C-w>h
-map <C-Right> <C-w>l
-""""""""""""""""""""" panel traverse end
+" 同时显示行和列标记，用于定位当前光标
+command! Blink exec ':set cursorline! cursorcolumn!'
+
+" 重新加载当前配置文件
+command! Reload exec 'source' $MYVIMRC
+
+" 显示不可见字符
+command! List exec ':set list!'
+
+" 新建tab
+nmap <C-t> :tabe<CR>
+imap <C-t> <Esc>:tabe<CR>
+
+"tab切换
+nmap <leader>1 1gt
+nmap <leader>2 2gt
+nmap <leader>3 3gt
+nmap <leader>4 4gt
+nmap <leader>5 5gt
+
+" 禁用arrow-keys
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+

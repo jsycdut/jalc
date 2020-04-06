@@ -44,18 +44,30 @@ Plug 'mhinz/vim-startify' " fancy start screen for vim
 
 Plug 'jiangmiao/auto-pairs' " auto pairs, for better pairs edit experience, this is amazing
 
-Plug 'justinmk/vim-sneak' "The missing motion for Vim, by justinmk, neovim maintainer
-
 Plug 'alvan/vim-closetag' " close tags for me
 
 Plug 'junegunn/vim-easy-align' "for align
 
 Plug 'lervag/vimtex' " for tex file and it's align
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 "补全插件，最后选用了coc
 "Plug 'artur-shaik/vim-javacomplete2'
 "Plug 'ycm-core/YouCompleteMe'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+Plug 'MattesGroeger/vim-bookmarks'
+
+Plug 'wlemuel/vim-tldr' "TL;DR vim client
+
+" used to be using this, but I got easymotion for better experience
+" Plug 'justinmk/vim-sneak' "The missing motion for Vim, by justinmk, neovim maintainer
+Plug 'easymotion/vim-easymotion'
+
+Plug 'airblade/vim-gitgutter' "side bar for git changes
+
+Plug 'rking/ag.vim'  "The vim front for silver searcher
 
 call plug#end()
