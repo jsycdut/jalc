@@ -151,3 +151,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use enter to select the option
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+map <space>c :<C-u>CocCommand<CR>
+map <space>l :<C-u>CocList --normal<CR>

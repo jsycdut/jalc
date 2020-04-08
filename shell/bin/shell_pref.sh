@@ -30,3 +30,7 @@ export https_proxy="http://127.0.0.1:8118"
 export EDITOR="vim"
 export TERM="xterm-256color"
 export PATH=$PATH:"$HOME/.$USER-bin"
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
