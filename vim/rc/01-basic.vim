@@ -148,3 +148,5 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+" jumplist, 解决coc占用<C-i>问题
+nnoremap <C-p> <C-i>
