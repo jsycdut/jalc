@@ -85,15 +85,12 @@ set autowrite        "自动保存，指当前文件失去焦点时会触发自�
                       "可以考虑对其进行关闭
                       "这两者都和配色有关
 
-"set cursorcolumn      "高亮光标所在列
+"set cursorcolumn     "高亮光标所在列
                       "即视感就是你光标所在的那一列会出现一根竖线来提示你
                       "但是，如果你的光标在第一列
                       "有可能导致你看不清第一列的字符，这个和你配色有关
 
 "set background=light "设置背景为亮色,这里可以先不设置,可以暂时保持和terminal的色调相同
-
-"colorscheme tomorrow "设置颜色主题为tomorrow,前提是你安装了tomorrow主题
-
 
 "set ruler            "显示当前光标所在的行与列的信息
                       "具体位置在vim窗口右下角，类似4,4，20%
@@ -150,3 +147,7 @@ map <Down> <Nop>
 
 " jumplist, 解决coc占用<C-i>问题
 nnoremap <C-p> <C-i>
+
+" 缩进对齐
+vnoremap < <gv
+vnoremap > >gv

@@ -20,6 +20,8 @@ set shortmess+=c
 
 set signcolumn=yes
 
+hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+
 " ⇒  coc-lists, this is a heavily used coc-plugin besides coc itself
 nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
@@ -43,10 +45,11 @@ nmap <silent> gr <Plug>(coc-references)
 
 " ⇒  code actions, like auto import class for java, .etc
 nmap <space>a  <Plug>(coc-codeaction)
-nmap <space>f  <Plug>(coc-fix-current)
+nmap <space>r  <Plug>(coc-rename)
 
+" ⇒  completion and tab key
 
-"⇒  completion and tab key
+command! KH <Plug>(coc-cursors-position)
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -57,10 +60,10 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+" :help pumvisible() for detail
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " ⇒  documentation
 function! s:show_documentation()
