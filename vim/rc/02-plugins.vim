@@ -30,8 +30,6 @@ Plug 'tpope/vim-surround' " surround content with quotes or something, another p
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'junegunn/seoul256.vim'
-
 Plug 'morhetz/gruvbox'
 
 Plug 'majutsushi/tagbar' " using ctag files to show the encapsulation of the code file, like out line in eclipse or strcture in Intellij
