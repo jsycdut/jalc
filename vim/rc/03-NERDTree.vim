@@ -5,3 +5,5 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " remove NERDTree folder icon cause we use vim-devicon
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
+
+autocmd VimEnter * :NERDTree
