@@ -12,7 +12,7 @@ Plug 'preservim/nerdtree' " 目录插件
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTree文件类型语法高亮
 
-Plug 'scrooloose/syntastic'      "语法检测，保存代码时检验语法错误
+Plug 'dense-analysis/ale' "静态代码检查工具，比syntastic更先进
 
 Plug 'junegunn/goyo.vim' "goyo  centerlize your vitextm
 
