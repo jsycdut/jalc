@@ -12,8 +12,6 @@ Plug 'preservim/nerdtree' " 目录插件
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTree文件类型语法高亮
 
-Plug 'dense-analysis/ale' "静态代码检查工具，比syntastic更先进
-
 Plug 'junegunn/goyo.vim' "goyo  centerlize your vitextm
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -51,6 +49,8 @@ Plug 'lervag/vimtex' " for tex file and it's align
 "补全插件，最后选用了coc
 "Plug 'artur-shaik/vim-javacomplete2'
 "Plug 'ycm-core/YouCompleteMe'
+
+Plug 'dense-analysis/ale', { 'for': ['shell'] }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
