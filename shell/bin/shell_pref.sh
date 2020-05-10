@@ -34,3 +34,5 @@ export PATH=$PATH:"$HOME/.$USER-bin"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+export PS1="\e[0;31m[\e[0m\e[1;36m\u\e[0m\e[1;32m@\e[0m\e[1;33m\h\e[0m \e[3;35m\W\e[0m\e[1;31m]\e[0m\$\e[0m "
