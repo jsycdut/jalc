@@ -24,6 +24,8 @@ Plug 'tpope/vim-fugitive' " git plugin for vim, by tpope
 
 Plug 'tpope/vim-surround' " surround content with quotes or something, another plugin by tpope
 
+Plug 'tpope/vim-projectionist'
+
 " combined
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -68,4 +70,5 @@ Plug 'airblade/vim-gitgutter' "side bar for git changes
 
 Plug 'rking/ag.vim'  "The vim front for silver searcher
 
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} "Fancy ranger plugin in vim
 call plug#end()
