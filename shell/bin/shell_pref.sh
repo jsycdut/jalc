@@ -36,6 +36,7 @@ export PATH=$PATH:"$HOME/.$USER-bin"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$PATH:$HOME/.local/bin
 
 # for idea weird blank screen
 export _JAVA_AWT_WM_NONREPARENTING=1
