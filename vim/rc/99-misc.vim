@@ -1,4 +1,4 @@
-colorscheme gruvbox
+" colorscheme gruvbox disable cause my default terminal color is gruvbox
 
 au BufNewFile *.java exec ":call AddJavaHeader()"
 
