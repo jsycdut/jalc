@@ -10,3 +10,6 @@ for alias_file in $HOME/.config/aliases; do
 done
 
 # load environment variables
+for env_file in $HOME/.config/envs; do
+    source $env_file
+done
