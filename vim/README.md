@@ -1,2 +1,0 @@
-# scripts
-just some scripts

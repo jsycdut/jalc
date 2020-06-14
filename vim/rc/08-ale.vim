@@ -1,1 +1,0 @@
-" ALE (Asynchronous Lint Engine) 
