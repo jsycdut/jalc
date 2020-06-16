@@ -29,4 +29,4 @@ alias fetch='git fetch'
 # misc
 alias cp='cp -v'
 alias rm='rm -v'
-alias ll='ls -lh'
+alias ls='ls --color=auto'
