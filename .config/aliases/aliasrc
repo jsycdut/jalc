@@ -1,5 +1,4 @@
 # systemctl
-alias SS="sudo systemctl"
 alias stop="sudo systemctl stop"
 alias start="sudo systemctl start"
 alias status="sudo systemctl status"
@@ -18,6 +17,7 @@ alias e='nvim'
 alias f='fzf'
 alias r='ranger'
 alias t='tmux new -n github -s workspace'
+alias x='startx'
 alias vim='nvim'
 
 # git
@@ -29,3 +29,4 @@ alias fetch='git fetch'
 # misc
 alias cp='cp -v'
 alias rm='rm -v'
+alias ll='ls -lh'
