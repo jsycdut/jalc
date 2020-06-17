@@ -1,6 +1,6 @@
-/*
-!.gitignore
-!/.config
-!/.local
-!.bashrc
-!.bash_profile
+#/*
+#!.gitignore
+#!/.config
+#!/.local
+#!.bashrc
+#!.bash_profile
