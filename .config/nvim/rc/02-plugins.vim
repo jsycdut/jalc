@@ -71,4 +71,6 @@ Plug 'airblade/vim-gitgutter' "side bar for git changes
 Plug 'rking/ag.vim'  "The vim front for silver searcher
 
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} "Fancy ranger plugin in vim
+
+Plug 'rbong/vim-flog' "Git log graphic
 call plug#end()

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # systemctl
 alias stop="sudo systemctl stop"
 alias start="sudo systemctl start"
