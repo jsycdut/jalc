@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# pacman
+alias search="sudo pacman -Ss"
+alias install="sudo pacman -S"
+
 # systemctl
 alias stop="sudo systemctl stop"
 alias start="sudo systemctl start"
