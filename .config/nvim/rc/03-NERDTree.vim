@@ -6,4 +6,4 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
-autocmd VimEnter * :NERDTree
+"autocmd VimEnter * :NERDTree

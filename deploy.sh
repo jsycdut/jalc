@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set -e
 
 #################### folders
 # copy everything in .config to $HOME/.config
