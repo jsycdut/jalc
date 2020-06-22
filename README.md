@@ -1,14 +1,20 @@
-# dotfiles
+# jalc
 
 - [中文版](./README-CN.md)
 
-my personal dotfiles and frequently used scripts, feel free to steal ideas from this project.
+> jalc means jsycdut's arch linux configuration
+
+I'am an arch linux user. This repo contains all my config files, include `vim, tmux and my other configs` aka `dotfiles`. I've seen many instersting configs and I `steal` ideas from them, now it's time to share mine.
+
+## screenshots
+
+![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/arch-with-dwm.png)
 
 ## contents
 
 - [vim](#vim)
 - [tmux](#tmux)
-
+- [arch-specified](#arch-specified)
 
 ### vim
 
