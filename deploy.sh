@@ -18,7 +18,6 @@ done
 ################### regular files
 regular_file_list=(
 .bashrc
-.bash_profile
 )
 
 for regular_file in ${regular_file_list[*]}; do
