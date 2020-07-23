@@ -25,6 +25,7 @@ alias r='ranger'
 alias t='tmux new -n github -s workspace'
 alias x='startx'
 alias vim='nvim'
+alias d='sudo docker'
 
 # git
 alias pull='git pull'
