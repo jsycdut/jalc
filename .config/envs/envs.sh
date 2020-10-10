@@ -13,3 +13,6 @@ export PATH=$PATH:$HOME/.local/bin
 
 # for idea weird blank screen on dmw
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# for blurred font
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
