@@ -2,23 +2,12 @@
 
 - [中文版](./README-CN.md)
 
-> jalc means jsycdut's arch linux configuration
+> jalc is short for jsycdut's arch linux configuration
 
-I'm an arch linux user. This repo contains all my config files, include `vim, tmux and my other configs` aka `dotfiles`, most of them are stored inside of `.config` folder. I've seen lots of instersting configs and I `steal` ideas from them, now it's time to share mine.
-
-## screenshots
-
-![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/arch-with-dwm.png)
-
-## contents
-
-- [vim](#vim)
-- [tmux](#tmux)
-
-the config files are orgnized as below
+These are my dotfiles, including `bash vim tmux` and some other config files, they are orgnized in diffrent level of folders. If you wanna more details on specific topic, follow the links mentioned below.
 
 ```bash
-[corona@cas jalc]$ tree -aL 2 .
+[corona@cas github]$ tree -aL 2 jalc
 .
 ├── .bashrc
 ├── .config
@@ -40,32 +29,28 @@ the config files are orgnized as below
 └── .Xmodmap # keycode remapping
 ```
 
-### vim
+**How to use?**
+
+Follow the constructions below and you will get all the config files ready, if you take a glance at the `deploy.sh` and some other readme files, you will know how these files work.
 
 ```bash
-[corona@cas .config]$ tree nvim/
-nvim/
-├── get-vim-plug.sh # it will download vim-plug as a plugin manager
-├── init.vim # load all other configs in rc folder
-└── rc # runtime config
-    ├── 01-essential.vim # the backbone configuration
-    ├── 02-plugins.vim # declare all my plugins here
-    ├── 03-NERDTree.vim # specific configuration for plugins
-    ├── 04-coc.vim
-    ├── 05-fzf.vim
-    ├── 06-close-tag.vim
-    ├── 07-goyo.vim
-    ├── 08-ale.vim
-    ├── 09-bookmarks.vim
-    ├── 10-tldr.vim
-    ├── 11-rnvimr.vim
-    ├── 12-git-gutter.vim
-    ├── 13-ag.vim
-    ├── 14-pymode.vim
-    └── 99-misc.vim
+$ git clone https://github.com/jsycdut/jalc
+$ cd jalc
+$ bash deploy.sh
 ```
-Oh~ time to show off my vim screenshot. Wanna more details or asciinema screen record? see [nvim conf readme](./.config/nvim/README.md)
+
+## screenshots
+
+The desktop of my arch linux, it has dwm installed as it's window manager, and use Luke Smith's [Simple Terminal](https://github.com/LukeSmithxyz/st).
+
+![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/arch-with-dwm.png)
+
+The screenshots below are shot in the iterm2 of my Macbook Pro 2015 over ssh connection to my arch linux. I prefer neovim to vim, but the config files may work with vim8+ (I didn't try it). See my neovim configuration explaintion [here](./.config/nvim/README.md) for more details.
 
 ![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/vim/nvim-show.jpeg)
 
-### tmux
+Tmux is the real friend of terminal users like me, it helps me out of bunch of messy windows and saves me a lot of time, see tmux configuration explaintion [here](./.config/tmux/README.md)
+
+![tmux screen shot](https://raw.githubusercontent.com/jsycdut/photos/master/tmux/tmux.png)
+
+Feel free to open issues if you have any puzzles.
