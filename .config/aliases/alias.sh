@@ -19,13 +19,14 @@ alias 5..='cd ../../../../..'
 alias 6..='cd ../../../../../..'
 
 # tools
+alias c='clear'
+alias d='sudo docker'
 alias e='nvim'
 alias f='fzf'
 alias r='ranger'
 alias t='tmux new -n github -s workspace'
 alias x='startx'
 alias vim='nvim'
-alias d='sudo docker'
 
 # git
 alias pull='git pull'

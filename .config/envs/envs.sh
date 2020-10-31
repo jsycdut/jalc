@@ -9,7 +9,9 @@ export EDITOR="nvim"
 export TERM="st-256color"
 
 # PATH
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/ide/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 
 # for idea weird blank screen on dmw
 export _JAVA_AWT_WM_NONREPARENTING=1
