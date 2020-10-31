@@ -64,6 +64,8 @@ nvim/
     ├── 14-pymode.vim
     └── 99-misc.vim
 ```
-Here is my asciinema terminal record, see my vim readme for more details.
-[![asciicast](https://asciinema.org/a/JIwaKw04p5ckGDQJzMatU3zHK.svg)](https://asciinema.org/a/JIwaKw04p5ckGDQJzMatU3zHK)
+Oh~ time to show off my vim screenshot. Wanna more details or asciinema screen record? see [nvim conf readme](./.config/nvim/README.md)
+
+![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/vim/nvim-show.jpeg)
+
 ### tmux
