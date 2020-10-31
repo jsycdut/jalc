@@ -14,9 +14,56 @@ I'm an arch linux user. This repo contains all my config files, include `vim, tm
 
 - [vim](#vim)
 - [tmux](#tmux)
-- [arch-specified](#arch-specified)
+
+the config files are orgnized as below
+
+```bash
+[corona@cas jalc]$ tree -aL 2 .
+.
+├── .bashrc
+├── .config
+│   ├── aliases # command alias
+│   ├── colorscheme # gruvbox colorscheme for iterm2
+│   ├── envs # system environment variables
+│   ├── misc # miscellaneous items
+│   ├── nvim # nvim config files
+│   ├── ranger # ranger, a command line file manager
+│   ├── tmux # tmux config files
+│   └── wall.png # wallpaper
+├── deploy.sh # it copys all these config files to your $HOME
+├── .local # some scripts I use
+│   ├── abs
+│   ├── bin
+│   └── tools
+├── README-CN.md
+├── README.md
+└── .Xmodmap # keycode remapping
+```
 
 ### vim
 
-
+```bash
+[corona@cas .config]$ tree nvim/
+nvim/
+├── get-vim-plug.sh # it will download vim-plug as a plugin manager
+├── init.vim # load all other configs in rc folder
+└── rc # runtime config
+    ├── 01-essential.vim # the backbone configuration
+    ├── 02-plugins.vim # declare all my plugins here
+    ├── 03-NERDTree.vim # specific configuration for plugins
+    ├── 04-coc.vim
+    ├── 05-fzf.vim
+    ├── 06-close-tag.vim
+    ├── 07-goyo.vim
+    ├── 08-ale.vim
+    ├── 09-bookmarks.vim
+    ├── 10-tldr.vim
+    ├── 11-rnvimr.vim
+    ├── 12-git-gutter.vim
+    ├── 13-ag.vim
+    ├── 14-pymode.vim
+    └── 99-misc.vim
+```
+Here is my asciinema terminal record, see my vim readme for more details.
+[![asciicast](https://asciinema.org/a/JIwaKw04p5ckGDQJzMatU3zHK.svg)](https://asciinema.org/a/JIwaKw04p5ckGDQJzMatU3zHK)
 ### tmux
