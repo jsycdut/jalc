@@ -44,7 +44,7 @@ $ bash deploy.sh
 The desktop of my arch linux, it has dwm installed as it's window manager, and use Luke Smith's [Simple Terminal](https://github.com/LukeSmithxyz/st). Tmux is the real friend of terminal users like me, it helps me out of bunch of messy windows and saves me a lot of time, see tmux configuration explaintion [here](./.config/tmux/README.md)
 ![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/dwm-screen.png)
 
-The screenshots below are shot in the iterm2 of my Macbook Pro 2015 over ssh connection to my arch linux. I prefer neovim to vim, but the config files may work with vim8+ (I didn't try it). See my neovim configuration explaintion [here](./.config/nvim/README.md) for more details.
+I prefer neovim to vim, but the config files may work with vim8+ (I didn't try it). See my neovim configuration explaintion [here](./.config/nvim/README.md) for more details.
 
 ![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/vim/vim-lsp.png)
 
