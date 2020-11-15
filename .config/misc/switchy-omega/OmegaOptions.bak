@@ -25,7 +25,7 @@
         "bypassList": [
             {
                 "conditionType": "BypassCondition",
-                "pattern": "127.0.0.1"
+                "pattern": "127.0.0.1/7"
             },
             {
                 "conditionType": "BypassCondition",
@@ -57,7 +57,15 @@
             },
             {
                 "conditionType": "BypassCondition",
-                "pattern": "127.0.0.1/7"
+                "pattern": ".ruanyifeng.com"
+            },
+            {
+                "conditionType": "BypassCondition",
+                "pattern": ".miguvideo.com"
+            },
+            {
+                "conditionType": "BypassCondition",
+                "pattern": ".meituan.com"
             },
             {
                 "conditionType": "BypassCondition",
@@ -69,11 +77,31 @@
             },
             {
                 "conditionType": "BypassCondition",
+                "pattern": ".cmsblogs.com"
+            },
+            {
+                "conditionType": "BypassCondition",
                 "pattern": ".segmentfault.com"
             },
             {
                 "conditionType": "BypassCondition",
                 "pattern": ".qq.com"
+            },
+            {
+                "conditionType": "BypassCondition",
+                "pattern": ".ibm.com"
+            },
+            {
+                "conditionType": "BypassCondition",
+                "pattern": ".processon.com"
+            },
+            {
+                "conditionType": "BypassCondition",
+                "pattern": ".bing.com"
+            },
+            {
+                "conditionType": "BypassCondition",
+                "pattern": ".baidu.com"
             }
         ],
         "color": "#99ccee",
@@ -84,7 +112,7 @@
         },
         "name": "proxy",
         "profileType": "FixedProfile",
-        "revision": "175c9a9efaf"
+        "revision": "175c9cde4f4"
     },
     "-addConditionsToBottom": false,
     "-confirmDeletion": true,
