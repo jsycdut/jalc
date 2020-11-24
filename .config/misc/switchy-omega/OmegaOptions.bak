@@ -61,6 +61,10 @@
             },
             {
                 "conditionType": "BypassCondition",
+                "pattern": ".hupu.com"
+            },
+            {
+                "conditionType": "BypassCondition",
                 "pattern": ".miguvideo.com"
             },
             {
