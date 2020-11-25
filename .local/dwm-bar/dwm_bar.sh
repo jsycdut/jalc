@@ -17,7 +17,7 @@ DELIMITER=" | "
 
 while :; do
   bar_content=""
-  bar_content="$bar_content 👉 now $(show_time)"
+  bar_content="$bar_content $(show_time)"
   bar_content="$bar_content | $(machine_state)"
   bar_content="$bar_content | $(alibaba)"
   xsetroot -name "$bar_content"
