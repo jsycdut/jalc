@@ -112,7 +112,13 @@ set termencoding=utf-8                      "告诉vim你目前使用的terminal
 
 highlight VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE "这里清除NERDTree和文本区两边的围绕白块
 
-hilight Pmenu ctermbg=239 ctermfg=170 gui=bold "PopMenu前景色和背景色
+highlight Pmenu ctermbg=241 ctermfg=170 cterm=bold "PopMenu前景色和背景色
+highlight PmenuSel ctermbg=243 ctermfg=171 cterm=bold
+" for more highlight selections
+"Pmenu – normal item
+"PmenuSel – selected item
+"PmenuSbar – scrollbar
+"PmenuThumb – thumb of the scrollbar
 
 """"""""""""""""""" panel traverse start
 " use traditional h j k l
