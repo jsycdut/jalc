@@ -111,6 +111,7 @@ set encoding=utf-8                          "vim内部使用的编码，显示�
 set termencoding=utf-8                      "告诉vim你目前使用的terminal是什么编码
 
 highlight VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE "这里清除NERDTree和文本区两边的围绕白块
+highlight SignColumn ctermbg=NONE "清除SignColumn的背景色，:h sings
 
 highlight Pmenu ctermbg=241 ctermfg=170 cterm=bold "PopMenu前景色和背景色
 highlight PmenuSel ctermbg=243 ctermfg=171 cterm=bold
