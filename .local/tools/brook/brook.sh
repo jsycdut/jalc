@@ -97,14 +97,15 @@ function enable_bbr
 
 function help
 {
-  printf "%s\n" "Usage: ./brook.sh [OPTION]..."
+  printf "%s\n" "Usage: ./brook.sh [{-s | --server} [-p server_password]] | [{-c | --client} server_address [-p server_password]] [-h | --help]"
+  printf "%s\n" "{}: means params in {} are equal"
+  printf "%s\n" "[]: means params in [] are optional"
   printf "%s\n" "install brook on your linux machine and make it a service running in background"
   printf "\n"
-  printf "%s\n" "-h --help                    print this messag"
-  printf "%s\n" "-s --server                  install and config brook as a server"
-  printf "%s\n" "-c --client                  install and config brook as a client"
-  printf "%s\n" "-p --password                brook server password(default jsycdut), available for both brook server and client"
-  printf "%s\n" 
+  printf "%s\n" "-h --help           print this messag"
+  printf "%s\n" "-s --server         install and config brook as a server"
+  printf "%s\n" "-c --client         install and config brook as a client"
+  printf "%s\n" "-p --password       brook server password(default jsycdut), available for both brook server and client"
 }
 
 function check_left_param_account
