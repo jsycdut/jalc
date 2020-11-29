@@ -37,8 +37,7 @@ function fetch_brook_binary
 # write service file and make it automatically run after boot
 function write_server_service_file
 {
-  #cat > /lib/systemd/system/brook_server.service << BROOK
-  cat > mk << BROOK
+  cat > /lib/systemd/system/brook_server.service << BROOK
 [Unit]
 Description=Simple server-side service for brook
 After=network.target
@@ -63,8 +62,7 @@ BROOK
 
 function write_client_service_file
 {
-  #cat > /lib/systemd/system/brook_server.service << BROOK
-  cat > mk << BROOK
+  cat > /lib/systemd/system/brook_server.service << BROOK
 [Unit]
 Description=Simple server-side service for brook
 After=network.target
@@ -129,12 +127,14 @@ function main
         ;;
       -c | --client)
         INSTALL_BROOK_ON_CLIENTSIDE="fine, clientside aha"
-        check_left_param_account
+        [[ $# -lt 2 ]] && echo "error, params missing, run ./brook.sh -h for help" \
+          && exit $PARAM_ERROR
         shift
         SERVER_ADDR=$1
         ;;
       -p | --password)
-        check_left_param_account
+        [[ $# -lt 2 ]] && echo "error, params missing, run ./brook.sh -h for help" \
+          && exit $PARAM_ERROR
         shift
         SERVER_PASSWORD=$1
         ;;
@@ -143,21 +143,18 @@ function main
   done
 
   if [[ -n $INSTALL_BROOK_ON_SERVERSIDE ]]; then
-    printf "\n install brook on server on port 9997~9999 with password %s \n" $SERVER_PASSWORD
-    read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, \
-      any other key will abort the current process" confirmed
+    printf "install brook on server on port 9997~9999 with password %s \n" $SERVER_PASSWORD
+    read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, any other key will abort the current process " confirmed
     [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_server || echo "fine"
   elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
     printf "\n install brook as client, server address is %s with password %s\n" $SERVER_ADDR $SERVER_PASSWORD
     read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, \
-      any other key will abort the current process" confirmed
+      any other key will abort the current process " confirmed
     [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_client || echo "fine"
   else
     printf "nothing to do, done.\n"
   fi
 }
 
-
 [[ $# -eq 0 ]] && help && exit $OK
-
 main $@
