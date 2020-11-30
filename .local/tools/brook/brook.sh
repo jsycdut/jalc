@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 set -e
-#export http_proxy=http://127.0.0.1:8118
-#export https_proxy=http://127.0.0.1:8118
+export http_proxy=http://127.0.0.1:8118
+export https_proxy=http://127.0.0.1:8118
 #set -x
 
 # exit code
@@ -41,7 +41,7 @@ function fetch_brook_binary
 # write service file and make it automatically run after boot
 function write_server_service_file
 {
-  cat > /lib/systemd/system/brook_server.service << BROOK
+  cat > /lib/systemd/system/brook-server.service << BROOK
 [Unit]
 Description=Simple server-side service for brook
 After=network.target
@@ -57,16 +57,19 @@ Restart=on-failure
 WantedBy=multi-user.target
 BROOK
 
-  systemctl enable brook_server.service \
+  systemctl enable brook-server.service \
     && systemctl daemon-reload \
-    && systemctl start brook_server.service \
-    || echo "error brook_server.service configuration failed, \
-             check logs in journalctl for more details"; exit $BROOK_SERVICE_ERROR
+    && systemctl start brook-server.service
+
+  if [[ $? -ne 0 ]]; then
+    echo "error brook-server.service configuration failed, check logs in journalctl for more details"
+    exit $BROOK_SERVICE_ERROR
+  fi
 }
 
 function write_client_service_file
 {
-  cat > /lib/systemd/system/brook_client.service << BROOK
+  cat > /lib/systemd/system/brook-client.service << BROOK
 [Unit]
 Description=Simple client side service for brook
 After=network.target
@@ -81,11 +84,14 @@ Restart=on-failure
 WantedBy=multi-user.target
 BROOK
 
-  systemctl enable brook_server.service \
+  systemctl enable brook-client.service \
     && systemctl daemon-reload \
-    && systemctl start brook_server.service \
-    || echo "error brook_server.service configuration failed, \
-             check logs in journalctl for more details"; exit $BROOK_SERVICE_ERROR
+    && systemctl start brook-client.service
+
+  if [[ $? -ne 0 ]]; then
+    echo "error brook-client.service configuration failed, check logs in journalctl for more details"
+    exit $BROOK_SERVICE_ERROR
+  fi
 }
 
 function enable_bbr
@@ -165,9 +171,8 @@ function main
     read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, any other key will abort the current process " confirmed
     [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_server || echo "fine"
   elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
-    printf "\n install brook as client, server address is %s with password %s\n" $SERVER_ADDR $SERVER_PASSWORD
-    read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, \
-      any other key will abort the current process " confirmed
+    printf "\ninstall brook as client, server address is %s with password %s\n" $SERVER_ADDR $SERVER_PASSWORD
+    read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, any other key will abort the current process " confirmed
     [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_client || echo "fine"
   else
     printf "nothing to do, done.\n"
