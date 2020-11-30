@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 set -e
+#export http_proxy=http://127.0.0.1:8118
+#export https_proxy=http://127.0.0.1:8118
 #set -x
 
 # exit code
@@ -28,9 +30,11 @@ function root_privilege_check
 # fetch brook binary, without integrity check
 function fetch_brook_binary
 {
-  curl --silent --location --output brook \
+  printf "start downloading brook...\n"
+  curl --location --output brook \
     https://github.com/txthinking/brook/releases/download/v20210101/brook_linux_amd64
-  [[ $? != 0 ]] && echo "error happened when download brook, check your network connection"; exit $BROOK_DOWNLOAD_ERROR
+  [[ $? != 0 ]] && echo "error happened when download brook, check your network connection" && exit $BROOK_DOWNLOAD_ERROR
+  printf "download finished\n"
   chmod +x brook
 }
 
@@ -54,7 +58,7 @@ WantedBy=multi-user.target
 BROOK
 
   systemctl enable brook_server.service \
-    && systemctl daemon_reload \
+    && systemctl daemon-reload \
     && systemctl start brook_server.service \
     || echo "error brook_server.service configuration failed, \
              check logs in journalctl for more details"; exit $BROOK_SERVICE_ERROR
@@ -78,7 +82,7 @@ WantedBy=multi-user.target
 BROOK
 
   systemctl enable brook_server.service \
-    && systemctl daemon_reload \
+    && systemctl daemon-reload \
     && systemctl start brook_server.service \
     || echo "error brook_server.service configuration failed, \
              check logs in journalctl for more details"; exit $BROOK_SERVICE_ERROR
@@ -110,6 +114,20 @@ function check_left_param_account
 {
   [[ $# -lt 2 ]] && echo "error, params missing, run ./brook.sh -h for help" \
     && exit $PARAM_ERROR
+}
+
+function install_brook_on_server
+{
+  root_privilege_check
+  fetch_brook_binary
+  write_client_service_file
+}
+
+function install_brook_on_client
+{
+  root_privilege_check
+  fetch_brook_binary
+  write_client_service_file
 }
 
 # be careful, no variable check
