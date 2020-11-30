@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # read /sys/class/power_supply/BAT0/status for battery charing or not
 # read /sys/class/power_supply/BAT0/capacity for battery capacity
 # sometimes you need to read /sys/class/power_supply/BAT0/capacity for battery capacity
@@ -14,7 +16,7 @@ function machine_state() {
   local battery_display_str
   local battery_status="⚡"
   local battery_candidate1=/sys/class/power_supply/BAT0/
-  local battery_candidate1=/sys/class/power_supply/BAT1/
+  local battery_candidate2=/sys/class/power_supply/BAT1/
   [[ -d $battery_candidate1 ]] && battery_file=$battery_candidate1
   [[ -d $battery_candidate2 ]] && battery_file=$battery_candidate2
   if [[ -n $battery_file ]]; then
@@ -31,3 +33,5 @@ function machine_state() {
 
   printf "%s %s %s\n" $battery_display_str $brightness_status $sound_status
 }
+
+machine_state
