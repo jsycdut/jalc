@@ -18,8 +18,9 @@ DELIMITER=" | "
 while :; do
   bar_content=""
   bar_content="$bar_content $(show_time)"
-  bar_content="$bar_content|$(machine_state)"
-  bar_content="$bar_content|$(alibaba)"
+  bar_content="$bar_content| $(machine_state)"
+  bar_content="$bar_content| $(load_average)"
+  bar_content="$bar_content| $(weather)"
   xsetroot -name "$bar_content"
   
   sleep 5
