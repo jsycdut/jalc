@@ -66,9 +66,9 @@ BROOK
 
 function write_client_service_file
 {
-  cat > /lib/systemd/system/brook_server.service << BROOK
+  cat > /lib/systemd/system/brook_client.service << BROOK
 [Unit]
-Description=Simple server-side service for brook
+Description=Simple client side service for brook
 After=network.target
 Wants=network.target
 
@@ -120,7 +120,7 @@ function install_brook_on_server
 {
   root_privilege_check
   fetch_brook_binary
-  write_client_service_file
+  write_server_service_file
 }
 
 function install_brook_on_client
