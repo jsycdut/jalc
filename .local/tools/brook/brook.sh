@@ -2,6 +2,7 @@
 
 set -e
 #set -x
+export ALL_PROXY=socks5://127.0.0.1:9999
 
 # exit code
 OK=0
@@ -17,6 +18,11 @@ SERVER_ADDR="1.1.1.1"
 SERVER_PASSWORD="jsycdut"
 INSTALL_BROOK_ON_SERVERSIDE=
 INSTALL_BROOK_ON_CLIENTSIDE=
+
+# colorful output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NORMAL='\033[0m'
 
 # root privilege check, cause I need to write service file to sys directory
 function root_privilege_check
@@ -75,7 +81,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=$BROOK_HOME/brook client -s $SERVER_ADDR -p "$SERVER_PASSWORD" --socks5 0.0.0.0:9550
+ExecStart=$BROOK_HOME/brook client -s $SERVER_ADDR:9997 -p "$SERVER_PASSWORD" --socks5 0.0.0.0:9997
 Restart=on-failure
 
 [Install]
@@ -165,8 +171,8 @@ function main
   done
 
   if [[ -n $INSTALL_BROOK_ON_SERVERSIDE ]]; then
-    printf "install brook on server on port 9997~9999 with password %s \n" $SERVER_PASSWORD
-    read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, any other key will abort the current process " confirmed
+    printf "${GREEN}install brook on server on port 9997~9999 with password $SERVER_PASSWORD ${NORMAL}\n"
+    read -p "Press [y|Y] to continue, any other key will abrot: " confirmed
     [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_server || echo "fine"
   elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
     printf "\ninstall brook as client, server address is %s with password %s\n" $SERVER_ADDR $SERVER_PASSWORD
