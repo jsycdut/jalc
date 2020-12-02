@@ -2,7 +2,7 @@
 
 set -e
 #set -x
-export ALL_PROXY=socks5://127.0.0.1:9999
+#export ALL_PROXY=socks5://127.0.0.1:9999
 
 # exit code
 OK=0
@@ -11,6 +11,7 @@ BROOK_DOWNLOAD_ERROR=86
 BROOK_SERVICE_ERROR=87
 BBR_APPLIED_FAILED=88
 PARAM_ERROR=89
+ONLY_CLIENT_OR_SERVER_ALLOWED=90
 
 # brook related params
 BROOK_HOME=$(dirname $(readlink -f $0))
@@ -20,24 +21,29 @@ INSTALL_BROOK_ON_SERVERSIDE=
 INSTALL_BROOK_ON_CLIENTSIDE=
 
 # colorful output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+PURPLE='\033[1;35m'
+WHITE='\033[1; 37m'
 NORMAL='\033[0m'
 
 # root privilege check, cause I need to write service file to sys directory
 function root_privilege_check
 {
-  [[ $EUID -ne 0 ]] && echo "error! root privilege required, run as root" \
+  [[ $EUID -ne 0 ]] \
+    && printf "${RED}error!${NORMAL} root privilege required, run as root \n" \
     && exit $NOT_ROOT_USER
 }
 
 # fetch brook binary, without integrity check
 function fetch_brook_binary
 {
-  printf "start downloading brook...\n"
+  printf "${GREEN}start downloading brook...${NORMAL}\n"
   curl --location --output brook \
     https://github.com/txthinking/brook/releases/download/v20210101/brook_linux_amd64
-  [[ $? != 0 ]] && echo "error happened when download brook, check your network connection" && exit $BROOK_DOWNLOAD_ERROR
+  [[ $? != 0 ]] \
+    && printf "${RED}error happened when download brook, check your network connection${NORMAL}" \
+    && exit $BROOK_DOWNLOAD_ERROR
   printf "download finished\n"
   chmod +x brook
 }
@@ -104,7 +110,9 @@ function enable_bbr
   echo net.ipv4.tcp_congestion_control=bbr >> /etc/sysctl.conf
   sysctl -p
   tcp_congestion_control=$(cat /proc/sys/net/ipv4/tcp_congestion_control)
-  [[ $tcp_congestion_control == "bbr" ]]  || echo "error apply bbr for tcp congestion control failed"; exit $BBR_APPLIED_FAILED
+  [[ $tcp_congestion_control != "bbr" ]] \
+    && printf "${RED}error apply bbr for tcp congestion control failed${NORMAL}" \
+    && exit $BBR_APPLIED_FAILED
 }
 
 function help
@@ -122,7 +130,8 @@ function help
 
 function check_left_param_account
 {
-  [[ $# -lt 2 ]] && echo "error, params missing, run ./brook.sh -h for help" \
+  [[ $# -lt 2 ]] \
+    && printf "${RED}ERROR${NORMAL} params missing, run ./brook.sh -h for help" \
     && exit $PARAM_ERROR
 }
 
@@ -140,6 +149,34 @@ function install_brook_on_client
   write_client_service_file
 }
 
+function do_install
+{
+  if [[ -n $INSTALL_BROOK_ON_SERVERSIDE ]]; then
+    printf "${GREEN}install brook on server on port 9997~9999 with password $SERVER_PASSWORD ${NORMAL}\n"
+  elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
+    printf "${GREEN}install brook as client, server address is %s with password %s ${NORMAL}\n" $SERVER_ADDR $SERVER_PASSWORD
+  fi
+
+  printf "Press ${PURPLE}[Y|y]${NORMAL} to continue, any other key will abrot: "
+
+  read confirmed
+  if [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]]; then
+    if [[ $1 == ${INSTALL_BROOK_ON_SERVERSIDE} ]]; then
+      install_brook_on_server
+    elif [[ $1 == ${INSTALL_BROOK_ON_CLIENTSIDE} ]]; then
+      install_brook_on_client
+    fi
+  else
+    printf "${GREEN}Fine, nothing to do${NORMAL}\n"
+    exit $OK
+  fi
+
+  if [[ $? == 0 ]]; then
+    printf "${GREEN}yeap, all done, hope it works${NORMAL}\n"
+  else
+    printf "${RED} Absolutely error happened during the process, check log and try to repair it ${NORMAL}\n"
+  fi
+}
 # be careful, no variable check
 function main
 {
@@ -155,13 +192,15 @@ function main
         ;;
       -c | --client)
         INSTALL_BROOK_ON_CLIENTSIDE="fine, clientside aha"
-        [[ $# -lt 2 ]] && echo "error, params missing, run ./brook.sh -h for help" \
+        [[ $# -lt 2 ]] \
+          && printf "${RED}ERROR${NORMAL}, params missing, run ./brook.sh -h for help \n" \
           && exit $PARAM_ERROR
         shift
         SERVER_ADDR=$1
         ;;
       -p | --password)
-        [[ $# -lt 2 ]] && echo "error, params missing, run ./brook.sh -h for help" \
+        [[ $# -lt 2 ]] \
+          && printf "${RED}ERROR${NORMAL}, params missing, run ./brook.sh -h for help \n" \
           && exit $PARAM_ERROR
         shift
         SERVER_PASSWORD=$1
@@ -170,16 +209,16 @@ function main
     shift
   done
 
+  [[ -n $INSTALL_BROOK_ON_SERVERSIDE && -n $INSTALL_BROOK_ON_CLIENTSIDE ]] \
+    && printf "${RED}you can't have your cake and eat it too${NORMAL}\n" \
+    && exit $ONLY_CLIENT_OR_SERVER_ALLOWED
+
   if [[ -n $INSTALL_BROOK_ON_SERVERSIDE ]]; then
-    printf "${GREEN}install brook on server on port 9997~9999 with password $SERVER_PASSWORD ${NORMAL}\n"
-    read -p "Press [y|Y] to continue, any other key will abrot: " confirmed
-    [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_server || echo "fine"
+    do_install $INSTALL_BROOK_ON_SERVERSIDE
   elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
-    printf "\ninstall brook as client, server address is %s with password %s\n" $SERVER_ADDR $SERVER_PASSWORD
-    read -p "Is that corrct? Press [y|Y] for comfirmation and installation will begin, any other key will abort the current process " confirmed
-    [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]] && install_brook_on_client || echo "fine"
+    do_install $INSTALL_BROOK_ON_CLIENTSIDE
   else
-    printf "nothing to do, done.\n"
+    printf "${PURPLE}nothing to do, done.${NORMAL}\n"
   fi
 }
 
