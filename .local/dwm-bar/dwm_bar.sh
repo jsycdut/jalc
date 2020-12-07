@@ -13,14 +13,14 @@ for script in $SCRIPT_DIR/*; do
   fi
 done
 
-DELIMITER=" | "
+DELIMITER="| "
 
 while :; do
   bar_content=""
   bar_content="$bar_content $(show_time)"
-  bar_content="$bar_content| $(machine_state)"
-  bar_content="$bar_content| $(load_average)"
-  bar_content="$bar_content| $(weather)"
+  bar_content="$bar_content${DELIMITER} $(machine_state)"
+  bar_content="$bar_content${DELIMITER} $(load_average)"
+  bar_content="$bar_content${DELIMITER} $(weather)"
   xsetroot -name "$bar_content"
   
   sleep 5

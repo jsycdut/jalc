@@ -33,5 +33,3 @@ function machine_state() {
 
   printf "%s %s %s\n" $battery_display_str $brightness_status $sound_status
 }
-
-machine_state

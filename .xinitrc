@@ -16,8 +16,7 @@ xcompmgr &
 xwallpaper --zoom $HOME/wallpapers/wall.png
 
 # status bar
-dwm_already_running=$(pgrep -a bash | grep dwm_bar)
-[[ -z $dwm_already_running ]] && nohup bash $HOME/.local/dwm-bar/dwm_bar.sh &
+bash $HOME/.local/dwm-bar/dwm_bar.sh &
 
 # launch dwm
 exec dwm
