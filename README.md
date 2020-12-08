@@ -38,6 +38,22 @@ $ git clone https://github.com/jsycdut/jalc
 $ cd jalc
 $ bash deploy.sh
 ```
+## software I use
+
+I use arch linux as my daily driver, and here are softwares I use.
+
+1. [dwm](https://dwm.suckless.org/) dynamic windows manager
+2. [st](https://st.suckless.org/) simple terminal
+3. [tmux](https://github.com/tmux/tmux) terminal multiplexer
+4. [ranger](https://github.com/ranger/ranger) A VIM-inspired filemanager for the console
+5. [neovim](https://neovim.io/) hyperextensible Vim-based text editor
+6. [chromium](https://www.chromium.org/chromium-projects) and [brave](https://brave.com) browsers
+7. [zathura](https://pwmt.org/projects/zathura/) a document viewer
+8. [sxiv](https://github.com/muennich/sxiv) simple X image viewer
+9. [mpv](https://wiki.archlinux.org/index.php/mpv) a media player
+10. [jetbrains-all](https://www.jetbrains.com/products.html#type=ide) developer tools
+11. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) Network Manager
+12. [xbacklight](https://wiki.archlinux.org/index.php/backlight#xbacklight) laptop screen backlight adjustment
 
 ## screenshots
 
