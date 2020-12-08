@@ -39,6 +39,24 @@ $ cd jalc
 $ bash deploy.sh
 ```
 
+## 我用到的软件
+
+在下日常使用arch linux（也就浏览网页，写点bug），下面是我常用的一些软件包
+
+1. [arch linux](https://www.archlinux.org/) 轻量灵活的Linux发行版
+2. [dwm](https://dwm.suckless.org/) 动态窗口管理器
+3. [st](https://st.suckless.org/) 简单终端
+4. [tmux](https://github.com/tmux/tmux) 终端多路复用模拟器
+5. [ranger](https://github.com/ranger/ranger) 给命令行爱好者的终端文件管理器，基于vim的操作方式
+6. [neovim](https://neovim.io/) 基于vim的高度可扩展的文本编辑器
+7. [chromium](https://www.chromium.org/chromium-projects) [brave](https://brave.com) 浏览器
+8. [zathura](https://pwmt.org/projects/zathura/) 文档浏览器
+9. [sxiv](https://github.com/muennich/sxiv) X 窗口环境下的简单图片浏览器
+10. [mpv](https://wiki.archlinux.org/index.php/mpv) 媒体播放器
+11. [jetbrains-all](https://www.jetbrains.com/products.html#type=ide) jetbrains全家桶
+12. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) Network Manager
+13. [xbacklight](https://wiki.archlinux.org/index.php/backlight#xbacklight) 笔记本屏幕背光调节
+
 ## 截屏
 
 以下是一些我的系统截屏，我主要使用的是tmux + neovim，具体的配置文件可以阅读对应的文件夹下面的README
