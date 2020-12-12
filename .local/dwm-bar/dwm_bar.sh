@@ -20,7 +20,8 @@ while :; do
   bar_content="$bar_content $(show_time)"
   bar_content="$bar_content${DELIMITER}$(machine_state)"
   bar_content="$bar_content${DELIMITER}$(load_average)"
-  bar_content="$bar_content${DELIMITER}$(weather)"
+  # it may take a long time to fetch weather information
+  #bar_content="$bar_content${DELIMITER}$(weather)"
   xsetroot -name "$bar_content"
   sleep 1
 done
