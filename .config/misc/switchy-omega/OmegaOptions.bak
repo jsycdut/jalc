@@ -89,6 +89,10 @@
             },
             {
                 "conditionType": "BypassCondition",
+                "pattern": ".processon.com"
+            },
+            {
+                "conditionType": "BypassCondition",
                 "pattern": ".qq.com"
             },
             {
