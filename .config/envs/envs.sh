@@ -12,6 +12,7 @@ export TERM="st-256color"
 export PATH=$PATH:$HOME/.local/bin:$HOME/ide/bin
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # for idea weird blank screen on dmw
 export _JAVA_AWT_WM_NONREPARENTING=1
