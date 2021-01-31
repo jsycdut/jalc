@@ -161,9 +161,9 @@ function do_install
 
   read confirmed
   if [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]]; then
-    if [[ $1 == ${INSTALL_BROOK_ON_SERVERSIDE} ]]; then
+    if [[ $1 == "${INSTALL_BROOK_ON_SERVERSIDE}" ]]; then
       install_brook_on_server
-    elif [[ $1 == ${INSTALL_BROOK_ON_CLIENTSIDE} ]]; then
+    elif [[ $1 == "${INSTALL_BROOK_ON_CLIENTSIDE}" ]]; then
       install_brook_on_client
     fi
   else
@@ -209,14 +209,14 @@ function main
     shift
   done
 
-  [[ -n $INSTALL_BROOK_ON_SERVERSIDE && -n $INSTALL_BROOK_ON_CLIENTSIDE ]] \
+  [[ -n "$INSTALL_BROOK_ON_SERVERSIDE" && -n "$INSTALL_BROOK_ON_CLIENTSIDE" ]] \
     && printf "${RED}you can't have your cake and eat it too${NORMAL}\n" \
     && exit $ONLY_CLIENT_OR_SERVER_ALLOWED
 
-  if [[ -n $INSTALL_BROOK_ON_SERVERSIDE ]]; then
-    do_install $INSTALL_BROOK_ON_SERVERSIDE
-  elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
-    do_install $INSTALL_BROOK_ON_CLIENTSIDE
+  if [[ -n "$INSTALL_BROOK_ON_SERVERSIDE" ]]; then
+    do_install "$INSTALL_BROOK_ON_SERVERSIDE"
+  elif [[ -n "$INSTALL_BROOK_ON_CLIENTSIDE" ]]; then
+    do_install "$INSTALL_BROOK_ON_CLIENTSIDE"
   else
     printf "${PURPLE}nothing to do, done.${NORMAL}\n"
   fi
