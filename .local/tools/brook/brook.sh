@@ -111,8 +111,7 @@ function enable_bbr
   sysctl -p
   tcp_congestion_control=$(cat /proc/sys/net/ipv4/tcp_congestion_control)
   [[ $tcp_congestion_control != "bbr" ]] \
-    && printf "${RED}error apply bbr for tcp congestion control failed${NORMAL}" \
-    && exit $BBR_APPLIED_FAILED
+    && printf "${RED}error apply bbr for tcp congestion control failed${NORMAL}"
 }
 
 function help
@@ -140,6 +139,7 @@ function install_brook_on_server
   root_privilege_check
   fetch_brook_binary
   write_server_service_file
+  enable_bbr
 }
 
 function install_brook_on_client
