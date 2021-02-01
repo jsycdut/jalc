@@ -110,8 +110,11 @@ function enable_bbr
   echo net.ipv4.tcp_congestion_control=bbr >> /etc/sysctl.conf
   sysctl -p
   tcp_congestion_control=$(cat /proc/sys/net/ipv4/tcp_congestion_control)
-  [[ $tcp_congestion_control != "bbr" ]] \
-    && printf "${RED}error apply bbr for tcp congestion control failed${NORMAL}"
+  if [[ "$tcp_congestion_control" != "bbr" ]]; then
+    printf "${RED}error apply bbr for tcp congestion control failed${NORMAL}"
+  else
+    printf "${GREEN}bbr is available now, you'd better restart your machine${NORMAL}"
+  fi
 }
 
 function help
