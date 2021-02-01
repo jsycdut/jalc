@@ -151,9 +151,9 @@ function install_brook_on_client
 
 function do_install
 {
-  if [[ -n $INSTALL_BROOK_ON_SERVERSIDE ]]; then
+  if [[ -n "$INSTALL_BROOK_ON_SERVERSIDE" ]]; then
     printf "${GREEN}install brook on server on port 9997~9999 with password $SERVER_PASSWORD ${NORMAL}\n"
-  elif [[ -n $INSTALL_BROOK_ON_CLIENTSIDE ]]; then
+  elif [[ -n "$INSTALL_BROOK_ON_CLIENTSIDE" ]]; then
     printf "${GREEN}install brook as client, server address is %s with password %s ${NORMAL}\n" $SERVER_ADDR $SERVER_PASSWORD
   fi
 
@@ -161,9 +161,9 @@ function do_install
 
   read confirmed
   if [[ "$confirmed" == 'y' || "$confirmed" == 'Y' ]]; then
-    if [[ $1 == "${INSTALL_BROOK_ON_SERVERSIDE}" ]]; then
+    if [[ "$1" == "${INSTALL_BROOK_ON_SERVERSIDE}" ]]; then
       install_brook_on_server
-    elif [[ $1 == "${INSTALL_BROOK_ON_CLIENTSIDE}" ]]; then
+    elif [[ "$1" == "${INSTALL_BROOK_ON_CLIENTSIDE}" ]]; then
       install_brook_on_client
     fi
   else
