@@ -61,5 +61,8 @@ $ bash deploy.sh
 
 以下是一些我的系统截屏，我主要使用的是tmux + neovim，具体的配置文件可以阅读对应的文件夹下面的README
 
-![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/dwm-screen.png)
-![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/vim/vim-lsp.png)
+![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/tmux-screen.png)
+![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/neovim.png)
+
+同时我也使用emacs，我的个人配置在[这里](https://github.com/jsycdut/emacs.d)
+![](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/emacs.png)
