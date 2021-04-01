@@ -59,10 +59,13 @@ I use arch linux as my daily driver, and here are softwares I use.
 ## screenshots
 
 The desktop of my arch linux, it has dwm installed as it's window manager, and use Luke Smith's [Simple Terminal](https://github.com/LukeSmithxyz/st). Tmux is the real friend of terminal users like me, it helps me out of bunch of messy windows and saves me a lot of time, see tmux configuration explaintion [here](./.config/tmux/README.md)
-![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/dwm-screen.png)
+![desktop](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/tmux-screen.png)
 
 I prefer neovim to vim, but the config files may work with vim8+ (I didn't try it). See my neovim configuration explaintion [here](./.config/nvim/README.md) for more details.
 
-![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/vim/vim-lsp.png)
+![nvim-screenshot](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/neovim.png)
+
+Oh, yes, I use emacs too, see my [emacs configuration here](https://github.com/jsycdut/emacs.d)
+![](https://raw.githubusercontent.com/jsycdut/photos/master/arch-linux/emacs.png)
 
 Feel free to open issues if you have any puzzles.
