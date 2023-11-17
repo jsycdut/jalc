@@ -40,7 +40,7 @@ function fetch_brook_binary
 {
   printf "${GREEN}start downloading brook...${NORMAL}\n"
   curl --location --output brook \
-    https://github.com/txthinking/brook/releases/download/v20210101/brook_linux_amd64
+    https://github.com/txthinking/brook/releases/download/v20230606/brook_linux_amd64
   [[ $? != 0 ]] \
     && printf "${RED}error happened when download brook, check your network connection${NORMAL}" \
     && exit $BROOK_DOWNLOAD_ERROR
@@ -59,8 +59,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=$BROOK_HOME/brook servers -l "0.0.0.0:9997 $SERVER_PASSWORD" \
-  -l "0.0.0.0:9998 $SERVER_PASSWORD" -l "0.0.0.0:9999 $SERVER_PASSWORD"
+ExecStart=$BROOK_HOME/brook server -l 0.0.0.0:9997 -p $SERVER_PASSWORD
 Restart=on-failure
 
 [Install]
